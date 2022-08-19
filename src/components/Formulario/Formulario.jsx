@@ -6,10 +6,11 @@ import pikachu from "../../assets/pikachu.png";
 import Input from "../Input/Input";
 import Detalle from "./Detalle";
 
-// En este componente tenemos nuestro formulario y dentro de él
-// tenemos los componentes que necesitan consumir nuestro estado.
-// Recuerda cual es el paso que debemos tomar para que nuestros
-// componentes puedan consumir un estado global.
+/**
+ * Componente que muestra los inputs del formulario.
+ *
+ * @returns {JSX.Element}
+ */
 
 const Formulario = () => {
 
@@ -31,10 +32,6 @@ const Formulario = () => {
           pokémon
         </p>
         <div className="cuerpo-formulario">
-          {/*
-           Si tan solo tuviesemos una manera de "encapsular" nuestros componentes
-           para que puedan acceder al estado global.
-          */}
           <div className="inputs">
             <div>
               <p className="nombre-seccion">
@@ -50,7 +47,11 @@ const Formulario = () => {
                 <img src={pikachu} alt="pikachu" />
                 <span>POKEMON</span>
               </p>
-              <Input name="nombrePokemon" label="Nombre" />
+              <Input name="nombrePokemon" label="Nombre" isPokemon />
+              <Input name="tipoPokemon" label="Tipo de pokemón" isPokemon />
+              <Input name="elemento" label="Elemento" isPokemon />
+              <Input name="altura" label="Altura" isPokemon />
+              <Input name="edad" label="Edad" isPokemon />
             </div>
           </div>
           <Detalle />

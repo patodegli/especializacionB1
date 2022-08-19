@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
-import { inputContext } from "../../context/ContextoFormulario";
+import { formContext } from "../../context/ContextoFormulario";
+
+/**
+ * Componente que muestra el detalle del formulario, con
+ * la información de cada uno de los campos que han sido completados por el usuario.
+ *
+ * @returns {JSX.Element}
+ */
 
 const Detalle = () => {
-  const {values} = useContext(inputContext)
-
-  // Aqui deberíamos obtener los datos del formulario para poder mostrarlo en
-  // la vista previa.
+  const {values} = useContext(formContext)
 
   return (
     <div className="detalle-formulario">
@@ -15,15 +19,19 @@ const Detalle = () => {
       <section className="datos-cliente">
         <h4>Datos del Entrenador</h4>
         <div className="fila">
-          <p>Nombre: {values.nombre}</p>
-          <p>Apellido: {values.apellido}</p>
-          <p>Email: {values.email}</p>
+          <p>Nombre: {values.entrenador.nombre}</p>
+          <p>Apellido: {values.entrenador.apellido}</p>
+          <p>Email: {values.entrenador.email}</p>
         </div>
       </section>
       <section className="datos-cliente">
         <h4>Datos del Pokémon</h4>
         <div className="fila">
-          <p>Nombre: {values.nombrePokemon}</p>
+          <p>Nombre: {values.pokemon.nombrePokemon}</p>
+          <p>Tipo de Pokemón: {values.pokemon.tipoPokemon}</p>
+          <p>Elemento: {values.pokemon.elemento}</p>
+          <p>Altura: {values.pokemon.altura}</p>
+          <p>Edad: {values.pokemon.edad}</p>
         </div>
       </section>
       <button
